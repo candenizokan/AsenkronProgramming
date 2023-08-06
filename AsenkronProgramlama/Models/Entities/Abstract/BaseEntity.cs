@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AsenkronProgramlama.Models.Enums;
+using System;
 
 namespace AsenkronProgramlama.Models.Entities.Abstract
 {
@@ -16,6 +17,13 @@ namespace AsenkronProgramlama.Models.Entities.Abstract
 
 		public DateTime? UpdateDate { get; set; }
 
+		private Statu _statu=Statu.Active;
+
+		public Statu MyProperty
+		{
+			get { return _statu=Statu.Active; }
+			set { _statu = value; }
+		}
 
 	}
 }
