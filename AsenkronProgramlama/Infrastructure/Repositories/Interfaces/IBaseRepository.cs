@@ -19,7 +19,7 @@ namespace AsenkronProgramlama.Infrastructure.Repositories.Interfaces
         Task<T> GetByDefault(Expression<Func<T,bool>> expression);
 
         Task<List<TResult>> GetFilter<TResult>(Expression<Func<T,TResult>> selector,
-                                               Expression<Func<T,bool>> expression
+                                               Expression<Func<T,bool>> expression,
                                                Func<IQueryable<T>,IOrderedQueryable<T>> orderBy=null,
                                                Func<IQueryable<T>,IIncludableQueryable<T,object>> join=null);
     }
