@@ -22,9 +22,9 @@ namespace AsenkronProgramlama.Infrastructure.Repositories.Cocrete
             _context = context;
             _table=_context.Set<T>();//herkes gidip kendi tablosuna eklenebilir
         }
-        public Task Add(T entity)
+        public async Task Add(T entity)
         {
-            _table.AddAsync(entity);//AddAsync async çalıştığım için metod dönüşünü async yapmalıyım
+            await _table.AddAsync(entity);//AddAsync async çalıştığım için metod dönüşünü async yapmalıyım
         }
 
         public Task<T> GetByDefault(Expression<Func<T, bool>> expression)
