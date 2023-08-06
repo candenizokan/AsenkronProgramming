@@ -27,14 +27,14 @@ namespace AsenkronProgramlama.Infrastructure.Repositories.Cocrete
             await _table.AddAsync(entity);//AddAsync async çalıştığım için metod dönüşünü async yapmalıyım
             await _context.SaveChangesAsync();
         }
-        public Task<T> GetByDefault(Expression<Func<T, bool>> expression)
+        public async Task<T> GetByDefault(Expression<Func<T, bool>> expression)
         {
-            throw new NotImplementedException();
+            return await _table.FirstOrDefaultAsync(expression);//ilgili şartı sağlayan ilk şartı getir
         }
 
-        public Task<List<T>> GetByDefaults(Expression<Func<T, bool>> expression)
+        public async Task<List<T>> GetByDefaults(Expression<Func<T, bool>> expression)
         {
-            throw new NotImplementedException();
+            return await _table.Where(expression).ToListAsync();
         }
 
         public Task<T> GetById(int id)
