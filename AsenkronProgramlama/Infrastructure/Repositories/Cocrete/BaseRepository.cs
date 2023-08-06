@@ -1,6 +1,7 @@
 ﻿using AsenkronProgramlama.Infrastructure.Context;
 using AsenkronProgramlama.Infrastructure.Repositories.Interfaces;
 using AsenkronProgramlama.Models.Entities.Abstract;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
 using System;
 using System.Collections.Generic;
@@ -13,11 +14,13 @@ namespace AsenkronProgramlama.Infrastructure.Repositories.Cocrete
     public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
     {
         private readonly ApplicationDbContext _context;
+        private readonly DbSet<T> _table;
 
         //önce context nesnemi almam lazım ctor da di ile alıyorum
         public BaseRepository(ApplicationDbContext context)
         {
             _context = context;
+            _table=_context.Set<T>();
         }
         public Task Add(T entity)
         {
