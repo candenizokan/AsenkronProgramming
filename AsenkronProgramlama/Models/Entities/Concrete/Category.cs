@@ -1,6 +1,8 @@
-﻿namespace AsenkronProgramlama.Models.Entities.Concrete
+﻿using AsenkronProgramlama.Models.Entities.Abstract;
+
+namespace AsenkronProgramlama.Models.Entities.Concrete
 {
-    public class Category
+    public class Category : BaseEntity
     {
     }
 }
