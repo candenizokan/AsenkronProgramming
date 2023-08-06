@@ -14,4 +14,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Infrastructure\Repositories\Interfaces\" />
+    <Folder Include="Infrastructure\Repositories\Cocrete\" />
+  </ItemGroup>
+
 </Project>
