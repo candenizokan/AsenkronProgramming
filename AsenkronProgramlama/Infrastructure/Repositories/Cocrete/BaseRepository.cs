@@ -37,9 +37,9 @@ namespace AsenkronProgramlama.Infrastructure.Repositories.Cocrete
             return await _table.Where(expression).ToListAsync();
         }
 
-        public Task<T> GetById(int id)
+        public async Task<T> GetById(int id)
         {
-            throw new NotImplementedException();
+            return await _table.FindAsync(id);
         }
 
         public Task<List<TResult>> GetFilter<TResult>(Expression<Func<T, TResult>> selector, Expression<Func<T, bool>> expression, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, Func<IQueryable<T>, IIncludableQueryable<T, object>> join = null)
