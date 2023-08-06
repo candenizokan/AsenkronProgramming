@@ -2,6 +2,7 @@
 using AsenkronProgramlama.Infrastructure.Repositories.Interfaces;
 using AsenkronProgramlama.Models.Entities.Abstract;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.EntityFrameworkCore.Query;
 using System;
 using System.Collections.Generic;
@@ -47,9 +48,12 @@ namespace AsenkronProgramlama.Infrastructure.Repositories.Cocrete
             throw new NotImplementedException();
         }
 
-        public Task Update(T entity)
+        public async Task Update(T entity)
         {
-            throw new NotImplementedException();
+            entity.Statu = Models.Enums.Statu.Modified;
+            entity.UpdateDate = DateTime.Now;
+            _context.Update(entity);
+            await _context.SaveChangesAsync();
         }
     }
 }

@@ -19,7 +19,7 @@ namespace AsenkronProgramlama.Models.Entities.Abstract
 
 		private Statu _statu=Statu.Active;
 
-		public Statu MyProperty
+		public Statu Statu
 		{
 			get { return _statu=Statu.Active; }
 			set { _statu = value; }
