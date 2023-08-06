@@ -43,9 +43,16 @@ namespace AsenkronProgramlama.Infrastructure.Repositories.Cocrete
             return await _table.FindAsync(id);
         }
 
-        public Task<List<TResult>> GetFilter<TResult>(Expression<Func<T, TResult>> selector, Expression<Func<T, bool>> expression, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, Func<IQueryable<T>, IIncludableQueryable<T, object>> join = null)
+        public async Task<List<TResult>> GetFilter<TResult>(Expression<Func<T, TResult>> selector, Expression<Func<T, bool>> expression, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, Func<IQueryable<T>, IIncludableQueryable<T, object>> join = null)
         {
-            throw new NotImplementedException();
+            IQueryable<T> query = _table;
+            if(join != null) query = join(query);
+
+            if(expression!=null) query=query.Where(expression);
+
+            if (orderBy != null) return await orderBy(query).Select(selector).ToListAsync();
+
+            return await query.Select(selector).ToListAsync();
         }
 
         public async Task Update(T entity)
