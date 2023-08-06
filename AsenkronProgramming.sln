@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsenkronProgramlama", "AsenkronProgramlama\AsenkronProgramlama.csproj", "{59EDB129-320A-46DC-8A3C-92506340344F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{59EDB129-320A-46DC-8A3C-92506340344F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59EDB129-320A-46DC-8A3C-92506340344F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59EDB129-320A-46DC-8A3C-92506340344F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59EDB129-320A-46DC-8A3C-92506340344F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DF5C882D-C5B6-40DB-A869-1C371B16A22F}
+	EndGlobalSection
+EndGlobal
