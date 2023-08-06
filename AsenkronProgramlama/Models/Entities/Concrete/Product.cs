@@ -12,6 +12,6 @@ namespace AsenkronProgramlama.Models.Entities.Concrete
         //navigation
         //bir productın bir karegorisi olur. bir id ve nesne barındırmam lazım
         public int CategoryId { get; set; }
-        public virtual Category Category { get; set; }
+        public virtual Category Category { get; set; }//virtual lazy loading yaptığım için virtual işaretledim
     }
 }
