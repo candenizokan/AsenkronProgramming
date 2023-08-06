@@ -20,11 +20,11 @@ namespace AsenkronProgramlama.Infrastructure.Repositories.Cocrete
         public BaseRepository(ApplicationDbContext context)
         {
             _context = context;
-            _table=_context.Set<T>();
+            _table=_context.Set<T>();//herkes gidip kendi tablosuna eklenebilir
         }
         public Task Add(T entity)
         {
-            throw new NotImplementedException();
+            _table.AddAsync(entity);//AddAsync async çalıştığım için metod dönüşünü async yapmalıyım
         }
 
         public Task<T> GetByDefault(Expression<Func<T, bool>> expression)
