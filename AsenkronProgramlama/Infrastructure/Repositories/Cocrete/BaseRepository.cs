@@ -25,8 +25,8 @@ namespace AsenkronProgramlama.Infrastructure.Repositories.Cocrete
         public async Task Add(T entity)
         {
             await _table.AddAsync(entity);//AddAsync async çalıştığım için metod dönüşünü async yapmalıyım
+            await _context.SaveChangesAsync();
         }
-
         public Task<T> GetByDefault(Expression<Func<T, bool>> expression)
         {
             throw new NotImplementedException();
