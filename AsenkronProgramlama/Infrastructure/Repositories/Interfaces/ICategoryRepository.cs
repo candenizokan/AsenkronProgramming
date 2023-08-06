@@ -1,6 +1,8 @@
-﻿namespace AsenkronProgramlama.Infrastructure.Repositories.Interfaces
+﻿using AsenkronProgramlama.Models.Entities.Concrete;
+
+namespace AsenkronProgramlama.Infrastructure.Repositories.Interfaces
 {
-    public interface ICategoryRepository
+    public interface ICategoryRepository:IBaseRepository<Category>
     {
     }
 }
