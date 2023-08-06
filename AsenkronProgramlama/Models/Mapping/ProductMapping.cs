@@ -8,7 +8,7 @@ namespace AsenkronProgramlama.Models.Mapping
     {
         public void Configure(EntityTypeBuilder<Product> builder)
         {
-            builder.HasOne(a => a.Category).WithMany(a => a.Products).HasForeignKey(a => a.CategoryId); //bir ürünün bir kategorisi vardır
+            builder.HasOne(a => a.Category).WithMany(a => a.Products).HasForeignKey(a => a.CategoryId); //bir ürünün bir kategorisi vardır. şidmi gidip db contetimi oluşturabilirim.
         }
     }
 }
