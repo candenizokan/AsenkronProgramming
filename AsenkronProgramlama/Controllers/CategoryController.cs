@@ -71,5 +71,21 @@ namespace AsenkronProgramlama.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Edit(UpdateCategoryDTO dto)
+        {
+            if (ModelState.IsValid)
+            {
+                Category category = _categoryRepository.GetByDefault(a=>a.Slug == dto.Slug);
+                if (category == null)
+                {
+                    var nesne = _mapper.Map<Category>(dto);
+                    await _categoryRepository.Update(nesne);
+                    return RedirectToAction("List");
+                }
+            }
+            return View(dto);
+        }
+
     }
 }
