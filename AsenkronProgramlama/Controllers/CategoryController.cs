@@ -1,6 +1,7 @@
 ﻿using AsenkronProgramlama.Infrastructure.Repositories.Interfaces;
 using AsenkronProgramlama.Models.DTOs;
 using AsenkronProgramlama.Models.Entities.Concrete;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AsenkronProgramlama.Controllers
@@ -8,10 +9,12 @@ namespace AsenkronProgramlama.Controllers
     public class CategoryController : Controller
     {
         private readonly ICategoryRepository _categoryRepository;
+        private readonly IMapper _mapper;
 
-        public CategoryController(ICategoryRepository categoryRepository)
+        public CategoryController(ICategoryRepository categoryRepository, IMapper mapper)
         {
             _categoryRepository = categoryRepository;
+            _mapper = mapper;
         }
        
         public IActionResult Create() => View();
@@ -30,6 +33,8 @@ namespace AsenkronProgramlama.Controllers
                     category.Name = dto.Name;
                     category.Slug = dto.Slug;
                     */
+
+                    Category category = _mapper.Map<Category>(dto);
 
 
 
