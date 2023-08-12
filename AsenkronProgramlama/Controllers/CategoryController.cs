@@ -66,8 +66,9 @@ namespace AsenkronProgramlama.Controllers
             updateCategoryDTO.ID=category.ID;
             updateCategoryDTO.Name=category.Name;
             */
+            var model = _mapper.Map<UpdateCategoryDTO>(category);
 
-            return View();
+            return View(model);
         }
 
     }
