@@ -61,10 +61,11 @@ namespace AsenkronProgramlama.Controllers
         {
             Category category = await _categoryRepository.GetById(id);
 
+            /*
             UpdateCategoryDTO updateCategoryDTO = new UpdateCategoryDTO();
             updateCategoryDTO.ID=category.ID;
             updateCategoryDTO.Name=category.Name;
-
+            */
 
             return View();
         }
