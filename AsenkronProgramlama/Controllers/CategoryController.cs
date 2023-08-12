@@ -20,7 +20,7 @@ namespace AsenkronProgramlama.Controllers
         {
             if (ModelState.IsValid)
             {
-               var nesne = //kategory repoya ihtiyacım var. o zaman di ile reoyu ctorda alacam soyut halini alacağım somutu verecek
+                var nesne = _categoryRepository.GetByDefault(a => a.Slug == dto.Slug);  //kategory repoya ihtiyacım var. o zaman di ile reoyu ctorda alacam soyut halini alacağım somutu verecek//_categoryRepository.GetByDefault(a => a.Slug == dto.Slug); içeride bu isimle bir kayıt var demektir
             }
 
             return View(dto);
