@@ -50,9 +50,9 @@ namespace AsenkronProgramlama.Controllers
             return View(dto);
         }
 
-        public IActionResult List()
+        public async Task<IActionResult> List()
         {
-            var categoryList = _categoryRepository.GetByDefaults(a=>a.Statu!=Statu.Active);
+            var categoryList = await _categoryRepository.GetByDefaults(a=>a.Statu!=Statu.Passive);
             return View(categoryList);
         }
         
