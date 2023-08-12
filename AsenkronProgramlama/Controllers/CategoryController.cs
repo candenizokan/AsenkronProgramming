@@ -10,6 +10,11 @@ namespace AsenkronProgramlama.Controllers
         [HttpPost]
         public IActionResult Create(CreateCategoryDTO dto)
         {
+            if (ModelState.IsValid)
+            {
+               var nesne = //kategory repoya ihtiyacım var. o zaman di ile reoyu ctorda alacam soyut halini alacağım somutu verecek
+            }
+
             return View(dto);
         }
         
