@@ -25,7 +25,7 @@ namespace AsenkronProgramlama.Controllers
             if (ModelState.IsValid)
             {
                 var nesne = _categoryRepository.GetByDefault(a => a.Slug == dto.Slug);  //kategory repoya ihtiyacım var. o zaman di ile reoyu ctorda alacam soyut halini alacağım somutu verecek//_categoryRepository.GetByDefault(a => a.Slug == dto.Slug); içeride bu isimle bir kayıt var demektir
-                
+
                 if (nesne == null)
                 {
                     /* böyle her property yazmak yerine automapper kütüphanesi ekleyebilirim
@@ -35,6 +35,10 @@ namespace AsenkronProgramlama.Controllers
                     */
 
                     Category category = _mapper.Map<Category>(dto);
+
+                    _categoryRepository.Add(category);
+
+                    return RedirectToAction("List");
 
 
 
