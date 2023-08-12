@@ -8,7 +8,7 @@ namespace AsenkronProgramlama.Infrastructure.AutoMappers
     {
         public Mappers()
         {
-            CreateMap<CreateCategoryDTO, Category>();
+            CreateMap<CreateCategoryDTO, Category>();//CreateCategoryDTO alanlara bak bana Category nesne ver
         }
     }
 }
