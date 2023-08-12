@@ -15,7 +15,7 @@ namespace AsenkronProgramlama.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CreatedDate = table.Column<DateTime>(nullable: false),
                     UpdateDate = table.Column<DateTime>(nullable: true),
-                    MyProperty = table.Column<int>(nullable: false),
+                    Statu = table.Column<int>(nullable: false),
                     Name = table.Column<string>(nullable: true),
                     Slug = table.Column<string>(nullable: true)
                 },
@@ -32,7 +32,7 @@ namespace AsenkronProgramlama.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CreatedDate = table.Column<DateTime>(nullable: false),
                     UpdateDate = table.Column<DateTime>(nullable: true),
-                    MyProperty = table.Column<int>(nullable: false),
+                    Statu = table.Column<int>(nullable: false),
                     Name = table.Column<string>(nullable: true),
                     Slug = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
