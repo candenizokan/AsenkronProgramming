@@ -18,7 +18,7 @@ namespace AsenkronProgramlama.Controllers
             _categoryRepository = categoryRepository;
             _mapper = mapper;
         }
-       
+
         public IActionResult Create() => View();
 
         [HttpPost]
@@ -52,14 +52,19 @@ namespace AsenkronProgramlama.Controllers
 
         public async Task<IActionResult> List()
         {
-            var categoryList = await _categoryRepository.GetByDefaults(a=>a.Statu!=Statu.Passive);
+            var categoryList = await _categoryRepository.GetByDefaults(a => a.Statu != Statu.Passive);
             return View(categoryList);
         }
 
 
-        public IActionResult Edit(int id) 
+        public async Task<IActionResult> Edit(int id)
         {
-           
+            Category category = await _categoryRepository.GetById(id);
+
+            UpdateCategoryDTO updateCategoryDTO = new UpdateCategoryDTO();
+            updateCategoryDTO.ID=category.ID;
+            updateCategoryDTO.Name=category.Name;
+
 
             return View();
         }
