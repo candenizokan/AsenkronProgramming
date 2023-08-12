@@ -91,7 +91,8 @@ namespace AsenkronProgramlama.Controllers
         public async Task<IActionResult> Delete(int id)
         {
             Category category = await _categoryRepository.GetByDefault(a => a.ID == id);
-            return View(category);
+            await _categoryRepository.Delete(category);
+            return RedirectToAction("List");
         }
 
     }
