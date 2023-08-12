@@ -12,7 +12,7 @@ namespace AsenkronProgramlama.Infrastructure.AutoMappers
 
             //CreateMap<CreateCategoryDTO, Category>().ReverseMap().ForMember(a=>a.Slug,opt=>opt.Ignore());//=>Ignore et slug taşıma
 
-            CreateMap<CreateCategoryDTO, UpdateCategoryDTO>();
+            CreateMap<Category, UpdateCategoryDTO>();
 
         }
     }
