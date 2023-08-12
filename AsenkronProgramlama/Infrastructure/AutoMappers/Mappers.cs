@@ -1,6 +1,8 @@
-﻿namespace AsenkronProgramlama.Infrastructure.AutoMappers
+﻿using AutoMapper;
+
+namespace AsenkronProgramlama.Infrastructure.AutoMappers
 {
-    public class Mappers
+    public class Mappers:Profile
     {
     }
 }
