@@ -3,6 +3,7 @@ using AsenkronProgramlama.Models.DTOs;
 using AsenkronProgramlama.Models.Entities.Concrete;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace AsenkronProgramlama.Controllers
 {
@@ -20,11 +21,11 @@ namespace AsenkronProgramlama.Controllers
         public IActionResult Create() => View();
 
         [HttpPost]
-        public IActionResult Create(CreateCategoryDTO dto)
+        public  Task<IActionResult> Create(CreateCategoryDTO dto)
         {
             if (ModelState.IsValid)
             {
-                var nesne = _categoryRepository.GetByDefault(a => a.Slug == dto.Slug);  //kategory repoya ihtiyacım var. o zaman di ile reoyu ctorda alacam soyut halini alacağım somutu verecek//_categoryRepository.GetByDefault(a => a.Slug == dto.Slug); içeride bu isimle bir kayıt var demektir
+                Category nesne = await _categoryRepository.GetByDefault(a => a.Slug == dto.Slug);  //kategory repoya ihtiyacım var. o zaman di ile reoyu ctorda alacam soyut halini alacağım somutu verecek//_categoryRepository.GetByDefault(a => a.Slug == dto.Slug); içeride bu isimle bir kayıt var demektir
 
                 if (nesne == null)
                 {
@@ -36,7 +37,7 @@ namespace AsenkronProgramlama.Controllers
 
                     Category category = _mapper.Map<Category>(dto);
 
-                    _categoryRepository.Add(category);
+                    await _categoryRepository.Add(category);
 
                     return RedirectToAction("List");
 
