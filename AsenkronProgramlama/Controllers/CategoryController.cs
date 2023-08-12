@@ -76,7 +76,7 @@ namespace AsenkronProgramlama.Controllers
         {
             if (ModelState.IsValid)
             {
-                Category category = _categoryRepository.GetByDefault(a=>a.Slug == dto.Slug);
+                Category category = await _categoryRepository.GetByDefault(a=>a.Slug == dto.Slug);
                 if (category == null)
                 {
                     var nesne = _mapper.Map<Category>(dto);
