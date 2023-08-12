@@ -15,6 +15,8 @@ namespace AsenkronProgramlama.Infrastructure.Repositories.Interfaces
         Task Update(T entity);
         Task<T> GetById(int id);
 
+        Task Delete(T entity);
+
         Task<List<T>> GetByDefaults(Expression<Func<T,bool>> expression);
         Task<T> GetByDefault(Expression<Func<T,bool>> expression);
 
