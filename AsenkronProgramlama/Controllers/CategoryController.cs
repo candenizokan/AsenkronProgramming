@@ -1,5 +1,6 @@
 ﻿using AsenkronProgramlama.Infrastructure.Repositories.Interfaces;
 using AsenkronProgramlama.Models.DTOs;
+using AsenkronProgramlama.Models.Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AsenkronProgramlama.Controllers
@@ -21,6 +22,14 @@ namespace AsenkronProgramlama.Controllers
             if (ModelState.IsValid)
             {
                 var nesne = _categoryRepository.GetByDefault(a => a.Slug == dto.Slug);  //kategory repoya ihtiyacım var. o zaman di ile reoyu ctorda alacam soyut halini alacağım somutu verecek//_categoryRepository.GetByDefault(a => a.Slug == dto.Slug); içeride bu isimle bir kayıt var demektir
+                
+                if (nesne == null)
+                {
+                    Category category = new Category();
+                    category.Name = dto.Name;
+                    category.Slug = dto.Slug;
+                    
+                }
             }
 
             return View(dto);
