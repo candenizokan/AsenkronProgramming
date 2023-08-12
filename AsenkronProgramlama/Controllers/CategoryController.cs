@@ -87,5 +87,12 @@ namespace AsenkronProgramlama.Controllers
             return View(dto);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            Category category = await _categoryRepository.GetByDefault(a => a.ID == id);
+            return View(category);
+        }
+
     }
 }
