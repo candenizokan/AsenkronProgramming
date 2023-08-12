@@ -4,6 +4,7 @@ using AsenkronProgramlama.Models.Entities.Concrete;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using AsenkronProgramlama.Models.Enums;
 
 namespace AsenkronProgramlama.Controllers
 {
@@ -47,6 +48,12 @@ namespace AsenkronProgramlama.Controllers
             }
 
             return View(dto);
+        }
+
+        public IActionResult List()
+        {
+            var categoryList = _categoryRepository.GetByDefaults(a=>a.Statu!=Statu.Active);
+            return View(categoryList);
         }
         
     }
