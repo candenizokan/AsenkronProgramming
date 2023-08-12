@@ -21,7 +21,7 @@ namespace AsenkronProgramlama.Controllers
         public IActionResult Create() => View();
 
         [HttpPost]
-        public  Task<IActionResult> Create(CreateCategoryDTO dto)
+        public async Task<IActionResult> Create(CreateCategoryDTO dto)
         {
             if (ModelState.IsValid)
             {
