@@ -1,4 +1,6 @@
 using AsenkronProgramlama.Infrastructure.Context;
+using AsenkronProgramlama.Infrastructure.Repositories.Cocrete;
+using AsenkronProgramlama.Infrastructure.Repositories.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -27,6 +29,9 @@ namespace AsenkronProgramlama
             services.AddControllersWithViews();
 
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
+
+
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
