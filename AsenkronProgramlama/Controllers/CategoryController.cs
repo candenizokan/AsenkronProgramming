@@ -55,6 +55,14 @@ namespace AsenkronProgramlama.Controllers
             var categoryList = await _categoryRepository.GetByDefaults(a=>a.Statu!=Statu.Passive);
             return View(categoryList);
         }
-        
+
+
+        public IActionResult Edit(int id) 
+        {
+           
+
+            return View();
+        }
+
     }
 }
