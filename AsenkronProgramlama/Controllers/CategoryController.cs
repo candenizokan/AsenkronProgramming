@@ -25,10 +25,14 @@ namespace AsenkronProgramlama.Controllers
                 
                 if (nesne == null)
                 {
+                    /* böyle her property yazmak yerine automapper kütüphanesi ekleyebilirim
                     Category category = new Category();
                     category.Name = dto.Name;
                     category.Slug = dto.Slug;
-                    
+                    */
+
+
+
                 }
             }
 
