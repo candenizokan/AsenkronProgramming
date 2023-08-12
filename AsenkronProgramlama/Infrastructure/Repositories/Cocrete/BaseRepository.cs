@@ -28,6 +28,14 @@ namespace AsenkronProgramlama.Infrastructure.Repositories.Cocrete
             await _table.AddAsync(entity);//AddAsync async çalıştığım için metod dönüşünü async yapmalıyım
             await _context.SaveChangesAsync();
         }
+
+        public async Task Delete(T entity)
+        {
+            entity.Statu = Models.Enums.Statu.Passive;
+            _table.Update(entity);
+            await _context.SaveChangesAsync();
+        }
+
         public async Task<T> GetByDefault(Expression<Func<T, bool>> expression)
         {
             return await _table.FirstOrDefaultAsync(expression);//ilgili şartı sağlayan ilk şartı getir
