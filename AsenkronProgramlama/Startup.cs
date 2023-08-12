@@ -1,3 +1,4 @@
+﻿using AsenkronProgramlama.Infrastructure.AutoMappers;
 using AsenkronProgramlama.Infrastructure.Context;
 using AsenkronProgramlama.Infrastructure.Repositories.Cocrete;
 using AsenkronProgramlama.Infrastructure.Repositories.Interfaces;
@@ -32,6 +33,9 @@ namespace AsenkronProgramlama
 
 
             services.AddScoped<ICategoryRepository, CategoryRepository>();
+
+
+            services.AddAutoMapper(typeof(Mappers));//AddAutoMapper ın bu projede temsilcisi benim için Mappers sınıfıdır.
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
