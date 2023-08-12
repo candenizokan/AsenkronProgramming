@@ -1,10 +1,18 @@
-﻿using AsenkronProgramlama.Models.DTOs;
+﻿using AsenkronProgramlama.Infrastructure.Repositories.Interfaces;
+using AsenkronProgramlama.Models.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AsenkronProgramlama.Controllers
 {
     public class CategoryController : Controller
     {
+        private readonly ICategoryRepository _categoryRepository;
+
+        public CategoryController(ICategoryRepository categoryRepository)
+        {
+            _categoryRepository = categoryRepository;
+        }
+       
         public IActionResult Create() => View();
 
         [HttpPost]
