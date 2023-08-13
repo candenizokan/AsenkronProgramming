@@ -48,7 +48,11 @@ namespace AsenkronProgramlama.Controllers
                     product.CategoryId = vm.CategoryID;
                     product.Category=await _categoryRepository.GetById(vm.CategoryID);//ilişki durumu
 
-                    //ben sana CreateProductVM nesnesi verdiğimde sen Product ekle demem lazım. mapper ile gideceğim
+                    //ben sana CreateProductVM nesnesi verdiğimde sen bakara Product ekle demem lazım. mapper ile gideceğim
+                    Product product1=_mapper.Map<Product>(vm);
+                    await _productRepository.Add(product1);//al product ı ekle
+                    return RedirectToAction("List");
+
                 }
             }
             return View(vm);
