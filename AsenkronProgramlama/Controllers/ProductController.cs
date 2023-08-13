@@ -37,7 +37,7 @@ namespace AsenkronProgramlama.Controllers
         {
             if (ModelState.IsValid)
             {
-                var nesne = await _productRepository.GetByDefault(a => a.Slug == vm.Slug);
+                Product nesne = await _productRepository.GetByDefault(a => a.Slug == vm.Slug);
                 if (nesne == null)
                 {
                     //product nesnesi olouşturmaya hazırım
