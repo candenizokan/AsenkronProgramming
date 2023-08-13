@@ -1,5 +1,7 @@
 ﻿using AsenkronProgramlama.Infrastructure.Repositories.Interfaces;
+using AsenkronProgramlama.Models.Enums;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace AsenkronProgramlama.Controllers
 {
@@ -14,7 +16,8 @@ namespace AsenkronProgramlama.Controllers
 
         public IActionResult Create()
         {
-            ViewBag.Categories=//bura category repoya ihtiyacım doğdu. bunu ctorda di ile alacağım
+            //bura category repoya ihtiyacım doğdu. bunu ctorda di ile alacağım
+            ViewBag.Categories = new SelectListItem(_categoryRepository.GetByDefaults(a => a.Statu != Statu.Passive), "ID", "Name");//pasive olmayan tüm kategorileri göndermem lazım
         }
     }
 }
