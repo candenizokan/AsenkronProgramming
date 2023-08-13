@@ -85,5 +85,15 @@ namespace AsenkronProgramlama.Controllers
                 );
             return View(list);
         }
+
+        public async Task<IActionResult> Edit(int id)
+        {
+            Product product = await _productRepository.GetById(id);
+
+            
+            var model = 
+
+            return View(model);
+        }
     }
 }
