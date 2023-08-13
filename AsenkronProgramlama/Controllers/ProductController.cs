@@ -34,10 +34,10 @@ namespace AsenkronProgramlama.Controllers
         {
             if (ModelState.IsValid)
             {
-                Product product = await _productRepository.GetByDefault(a => a.Slug == vm.Slug);
-                if (product == null)
+                var nesne = await _productRepository.GetByDefault(a => a.Slug == vm.Slug);
+                if (nesne == null)
                 {
-                    var nesne = 
+                    
                 }
             }
             return View(vm);
