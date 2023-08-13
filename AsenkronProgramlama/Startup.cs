@@ -33,6 +33,7 @@ namespace AsenkronProgramlama
 
 
             services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
 
 
             services.AddAutoMapper(typeof(Mappers));//AddAutoMapper ın bu projede temsilcisi benim için Mappers sınıfıdır.
