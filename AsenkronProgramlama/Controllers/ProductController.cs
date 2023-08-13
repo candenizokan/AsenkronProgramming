@@ -4,7 +4,7 @@ namespace AsenkronProgramlama.Controllers
 {
     public class ProductController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Create()
         {
             return View();
         }
