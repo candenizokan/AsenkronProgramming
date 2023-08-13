@@ -6,7 +6,7 @@ namespace AsenkronProgramlama.Controllers
     {
         public IActionResult Create()
         {
-            return View();
+            ViewBag.Categories=//bura category repoya ihtiyacım doğdu. bunu ctorda di ile alacağım
         }
     }
 }
