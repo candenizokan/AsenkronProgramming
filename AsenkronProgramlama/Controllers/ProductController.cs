@@ -37,7 +37,13 @@ namespace AsenkronProgramlama.Controllers
                 var nesne = await _productRepository.GetByDefault(a => a.Slug == vm.Slug);
                 if (nesne == null)
                 {
-                    
+                    //product nesnesi olouşturmaya hazırım
+                    Product product = new Product();
+                    product.Name = vm.Name;
+                    product.Description = vm.Description;
+                    product.Stock = vm.Stock;
+                    product.CategoryId = vm.CategoryID;
+                    product.Category=await _categoryRepository.GetById(vm.CategoryID);//ilişki durumu
                 }
             }
             return View(vm);
