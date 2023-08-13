@@ -50,6 +50,8 @@ namespace AsenkronProgramlama.Controllers
 
                     //ben sana CreateProductVM nesnesi verdiğimde sen bakara Product ekle demem lazım. mapper ile gideceğim
                     Product product1=_mapper.Map<Product>(vm);
+                    //Category nesnesini göremiyor mapper onu yapamıyor. bunu benim yazmam lazım
+                    product1.Category = await _categoryRepository.GetById(vm.CategoryID);//nesnesini ben atadım.
                     await _productRepository.Add(product1);//al product ı ekle
                     return RedirectToAction("List");
 
