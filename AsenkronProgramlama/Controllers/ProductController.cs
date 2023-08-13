@@ -112,5 +112,12 @@ namespace AsenkronProgramlama.Controllers
             await FillCategories();
             return View(vm);
         }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            Product product = await _productRepository.GetByDefault(a => a.ID == id);//product ımı bul
+            await _productRepository.Delete(product);
+            return RedirectToAction("List");
+        }
     }
 }
