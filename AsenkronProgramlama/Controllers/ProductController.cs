@@ -96,5 +96,23 @@ namespace AsenkronProgramlama.Controllers
 
             return View(vm);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(UpdateProductVM vm)
+        {
+            if (ModelState.IsValid)
+            {
+                Product product = await _productRepository.GetByDefault(a => a.Slug == vm.Slug);
+                if (product == null)
+                {
+                    var nesne = _mapper.Map<Product>(vm);//sen bana product ver vm'e bakarak
+                    nesne.Category = await _categoryRepository.GetById(vm.CategoryID);
+                    await _productRepository.Update(nesne);
+                    return RedirectToAction("List");
+                }
+            }
+            await FillCategories();
+            return View(vm);
+        }
     }
 }
