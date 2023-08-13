@@ -5,6 +5,7 @@ using AsenkronProgramlama.Models.VMs;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace AsenkronProgramlama.Controllers
@@ -73,6 +74,16 @@ namespace AsenkronProgramlama.Controllers
         public async Task<IActionResult> List()
         {
             //PrpductVm oluşturacağım. orada db den tüm kolonları değil istediğim alanları göstereceğim
+
+            //her bir product nesnesinden ProductVM nesnesini set etmeliyim
+
+            var list = await _productRepository.GetFilter
+                (
+                    selector: a=>new ProductVM { Name = a.Name, ProductID=a.ID, Statu=a.Statu,CategoryName=a.Category.Name,Stock=a.Stock},
+                    expression:a=>a.Statu!=Statu.Passive,
+                    orderBy:a=>a.OrderByDescending(a=>a.Stock)//stok mktarına göre çoktan aza
+                );
+            return View(list);
         }
     }
 }
