@@ -69,5 +69,10 @@ namespace AsenkronProgramlama.Controllers
             await FillCategories();
             return View(vm);
         }
+
+        public async Task<IActionResult> List()
+        {
+            //PrpductVm oluşturacağım. orada db den tüm kolonları değil istediğim alanları göstereceğim
+        }
     }
 }
