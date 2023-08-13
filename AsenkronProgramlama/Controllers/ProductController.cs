@@ -90,10 +90,11 @@ namespace AsenkronProgramlama.Controllers
         {
             Product product = await _productRepository.GetById(id);
 
-            
-            var model = 
+            //UpdateProductVM nesnesini doldurup göndermem lazım
+            UpdateProductVM vm = _mapper.Map<UpdateProductVM>(product);
+            await FillCategories();//kategorisini doldurum mapper bunu yapamıyor çünkü. bunu giddip runtimeda hata almamak için mappers sınıfında maplemeyi yapmam lazım. önce product tan vm e posta düşüncede vm den producta gideceğim bu durumda reverse olacak
 
-            return View(model);
+            return View(vm);
         }
     }
 }
