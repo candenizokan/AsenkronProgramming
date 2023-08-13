@@ -102,14 +102,12 @@ namespace AsenkronProgramlama.Controllers
         {
             if (ModelState.IsValid)
             {
-                Product product = await _productRepository.GetByDefault(a => a.Slug == vm.Slug);
-                if (product == null)
-                {
+               
                     var nesne = _mapper.Map<Product>(vm);//sen bana product ver vm'e bakarak
                     nesne.Category = await _categoryRepository.GetById(vm.CategoryID);
                     await _productRepository.Update(nesne);
                     return RedirectToAction("List");
-                }
+                
             }
             await FillCategories();
             return View(vm);
