@@ -57,6 +57,8 @@ namespace AsenkronProgramlama.Controllers
 
                 }
             }
+
+            //Tekrardan ViewBag doldurmalıyım ki olumsuz durumda kategoriyi göreyim. kod tekrarına düşmemek için tek yerde yaacağım her yerde çağırabilirim
             return View(vm);
         }
     }
