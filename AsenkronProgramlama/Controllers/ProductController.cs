@@ -2,6 +2,7 @@
 using AsenkronProgramlama.Models.Entities.Concrete;
 using AsenkronProgramlama.Models.Enums;
 using AsenkronProgramlama.Models.VMs;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Threading.Tasks;
@@ -12,11 +13,13 @@ namespace AsenkronProgramlama.Controllers
     {
         private readonly ICategoryRepository _categoryRepository;
         private readonly IProductRepository _productRepository;
+        private readonly IMapper _mapper;
 
-        public ProductController(ICategoryRepository categoryRepository, IProductRepository productRepository)
+        public ProductController(ICategoryRepository categoryRepository, IProductRepository productRepository, IMapper mapper)
         {
             _categoryRepository = categoryRepository;
             _productRepository = productRepository;
+            _mapper = mapper;
         }
 
         public async Task<IActionResult> Create()
@@ -44,6 +47,8 @@ namespace AsenkronProgramlama.Controllers
                     product.Stock = vm.Stock;
                     product.CategoryId = vm.CategoryID;
                     product.Category=await _categoryRepository.GetById(vm.CategoryID);//ilişki durumu
+
+                    //ben sana CreateProductVM nesnesi verdiğimde sen Product ekle demem lazım. mapper ile gideceğim
                 }
             }
             return View(vm);
