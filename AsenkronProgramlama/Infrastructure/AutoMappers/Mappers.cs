@@ -16,6 +16,8 @@ namespace AsenkronProgramlama.Infrastructure.AutoMappers
             CreateMap<Category, UpdateCategoryDTO>().ReverseMap();
             CreateMap<CreateProductVM, Product>();//create product sağladığımda product yapman lazım bunun için map yapmam lazım
 
+            CreateMap<Product, UpdateProductVM>().ReverseMap();
+
         }
     }
 }
