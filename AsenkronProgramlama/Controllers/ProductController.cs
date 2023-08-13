@@ -41,12 +41,12 @@ namespace AsenkronProgramlama.Controllers
                 if (nesne == null)
                 {
                     //product nesnesi olouşturmaya hazırım
-                    Product product = new Product();
-                    product.Name = vm.Name;
-                    product.Description = vm.Description;
-                    product.Stock = vm.Stock;
-                    product.CategoryId = vm.CategoryID;
-                    product.Category=await _categoryRepository.GetById(vm.CategoryID);//ilişki durumu
+                    //Product product = new Product();
+                    //product.Name = vm.Name;
+                    //product.Description = vm.Description;
+                    //product.Stock = vm.Stock;
+                    //product.CategoryId = vm.CategoryID;
+                    //product.Category=await _categoryRepository.GetById(vm.CategoryID);//ilişki durumu
 
                     //ben sana CreateProductVM nesnesi verdiğimde sen bakara Product ekle demem lazım. mapper ile gideceğim
                     Product product1=_mapper.Map<Product>(vm);
