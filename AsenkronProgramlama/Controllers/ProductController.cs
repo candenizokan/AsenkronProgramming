@@ -32,6 +32,11 @@ namespace AsenkronProgramlama.Controllers
             return View();
         }
 
+        async Task FillCategories()
+        {
+            ViewBag.Categories = new SelectList(await _categoryRepository.GetByDefaults(a => a.Statu != Statu.Passive), "ID", "Name");
+        }
+
         [HttpPost]
         public async Task<IActionResult> Create(CreateProductVM vm)
         {
