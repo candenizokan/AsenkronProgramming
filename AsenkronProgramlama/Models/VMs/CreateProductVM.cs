@@ -8,6 +8,7 @@ namespace AsenkronProgramlama.Models.VMs
         public string Name { get; set; }
         
         [Required(ErrorMessage = "Bu alan boş bırakılamaz")]
+        [Range(0,30000)]
         public int Stock { get; set; }
 
         [Required(ErrorMessage = "Bu alan boş bırakılamaz")]
